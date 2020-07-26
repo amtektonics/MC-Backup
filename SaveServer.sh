@@ -3,10 +3,12 @@ cd #absolute path to minecraft directory
 session= #session name of the tmux server
 levelName= #world name of the minecraft file
 numberOfBackups=9 #number of backups this server will store
+sleepDelay=15 #how long you would like to wait after save all to backup the world
 
 tmux send-keys -t ${session} "say Backing up server..." Enter
 tmux send-keys -t ${session} "save-off" Enter
 tmux send-keys -t ${session} "save-all" Enter
+sleep ${sleepDelay}
 tar -cvzf backup/${levelName}-$(date "+%Y-%m-%d-%H-%M").tar.gz ${levelName}/*
 tmux send-keys -t ${session} "save-on" Enter
 tmux send-keys -t ${session} "say Server backup complete!" Enter

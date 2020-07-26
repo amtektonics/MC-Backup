@@ -1,2 +1,2 @@
 #!/bin/bash
-tmux new -d -s <server name> "server launch code"
+tmux new -d -s tmux session name> "server launch code"
